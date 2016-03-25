@@ -1,0 +1,16 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt" xmlns:local="local">
+    <j:if test="${from.hasPlots()}">
+        <div align="right">
+            <p/>
+            <div class="test-trend-caption">
+                Plots
+            </div>
+            <j:forEach var="plot" items="${from.plots}" varStatus="loopStat">
+               <div>
+                   <img src="plot/getPlot?index=${loopStat.index}&amp;width=500&amp;height=200" width="500" height="200" lazymap="plot/getPlotMap?index=${loopStat.index}" />
+               </div>
+            </j:forEach>
+        </div>
+    </j:if>
+</j:jelly>

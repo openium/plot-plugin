@@ -135,7 +135,7 @@ public class PlotPublisher extends AbstractPlotPublisher {
      * Called by Jenkins.
      */
     @Override
-    public Action getProjectAction(AbstractProject<?, ?> project) {
+    public final Action getProjectAction(AbstractProject<?, ?> project) {
         return new PlotAction(project, this);
     }
 

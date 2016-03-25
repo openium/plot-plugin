@@ -28,7 +28,7 @@ public class PlotAction implements Action, StaplerProxy {
             .getName());
     private final AbstractProject<?, ?> project;
     private final PlotPublisher publisher;
-
+    
     public PlotAction(AbstractProject<?, ?> project, PlotPublisher publisher) {
         this.project = project;
         this.publisher = publisher;
@@ -71,6 +71,11 @@ public class PlotAction implements Action, StaplerProxy {
         return new PlotReport(project,
                 publisher.urlGroupToOriginalGroup(getUrlGroup(group)),
                 publisher.getPlots(getUrlGroup(group)));
+    }
+
+    // called from href created in PlotAction/index.jelly
+    public List<Plot> getPlots() {
+         return publisher.getPlots();
     }
 
     /**
